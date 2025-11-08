@@ -1,0 +1,32 @@
+# Copyright (C) 2025 LRob
+# This file is distributed under the same license as the LRob - Gutenberg Blur plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: LRob - Gutenberg Blur 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/lrob-gutenberg-blur\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-11-08T19:48:47+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: lrob-gutenberg-blur\n"
+
+#. Plugin Name of the plugin
+msgid "LRob - Gutenberg Blur"
+msgstr ""
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+msgid "https://www.lrob.fr/"
+msgstr ""
+
+#. Description of the plugin
+msgid "Adds backdrop blur effects to Gutenberg blocks (Group, Columns, Column, Row, Cover) with customizable background color, opacity, blur intensity, and saturation controls."
+msgstr ""
+
+#. Author of the plugin
+msgid "LRob"
+msgstr ""
