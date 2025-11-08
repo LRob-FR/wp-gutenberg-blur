@@ -25,6 +25,18 @@ msgid "Enable Blur Effect"
 msgstr "Vervagingseffect inschakelen"
 
 #: assets/editor.js
+msgid "Effect Type"
+msgstr "Effecttype"
+
+#: assets/editor.js
+msgid "Blur"
+msgstr "Vervaging"
+
+#: assets/editor.js
+msgid "Glass"
+msgstr "Glas"
+
+#: assets/editor.js
 msgid "Background Color"
 msgstr "Achtergrondkleur"
 
@@ -56,6 +68,58 @@ msgstr "Verzadiging (%)"
 msgid "Backdrop saturation level (100% = neutral)."
 msgstr "Achtergrondverzadigingsniveau (100% = neutraal)."
 
+#: assets/editor.js
+msgid "Glass Effect Settings"
+msgstr "Glaseffect instellingen"
+
+#: assets/editor.js
+msgid "Border Color"
+msgstr "Randkleur"
+
+#: assets/editor.js
+msgid "Border"
+msgstr "Rand"
+
+#: assets/editor.js
+msgid "Border Opacity (%)"
+msgstr "Rand dekking (%)"
+
+#: assets/editor.js
+msgid "Shadow Intensity (%)"
+msgstr "Schaduwintensiteit (%)"
+
+#: assets/editor.js
+msgid "Shadow uses background color"
+msgstr "Schaduw gebruikt achtergrondkleur"
+
+#: assets/editor.js
+msgid "Inner Glow (Refraction)"
+msgstr "Innerlijke gloed (Breking)"
+
+#: assets/editor.js
+msgid "Glow Intensity (%)"
+msgstr "Gloedintensiteit (%)"
+
+#: assets/editor.js
+msgid "Glow Size (px)"
+msgstr "Gloedgrootte (px)"
+
+#: assets/editor.js
+msgid "Glow Spread (px)"
+msgstr "Gloedverspreiding (px)"
+
+#: assets/editor.js
+msgid "Negative spreads inward"
+msgstr "Negatieve waarde: spreiding naar binnen"
+
+#: assets/editor.js
+msgid "Light Source Position"
+msgstr "Positie van lichtbron"
+
+#: assets/editor.js
+msgid "Click or drag to set light source position"
+msgstr "Klik of sleep om de positie van de lichtbron in te stellen"
+
 #: lrob-gutenberg-blur.php
 msgid "Adds backdrop blur effects to Gutenberg blocks (Group, Columns, Column, Row, Cover) with customizable background color, opacity, blur intensity, and saturation controls."
-msgstr "Voegt achtergrondvervagingseffecten toe aan Gutenberg-blokken (Groep, Kolommen, Kolom, Rij, Omslag) met aanpasbare achtergrondkleur, dekking, vervagingsintensiteit en verzadigingsregelaars."
+msgstr "Voegt achtergrondvervagingseffecten toe aan Gutenberg-blokken (Groep, Kolommen, Kolom, Rij, Cover) met aanpasbare achtergrondkleur, dekking, vervagingsintensiteit en verzadigingsregelaars."

@@ -76,6 +76,8 @@ class LRob_Gutenberg_Blur {
             return $block_content;
         }
 
+        $effect_type = isset($attrs['lrobEffectType']) ? sanitize_text_field($attrs['lrobEffectType']) : 'blur';
+
         // Sanitize and clamp values
         $blur = max(0, min(25, intval($attrs['lrobBlurAmount'] ?? 10)));
         $saturation = max(0, min(200, intval($attrs['lrobSaturationPct'] ?? 100)));
@@ -93,6 +95,9 @@ class LRob_Gutenberg_Blur {
             rtrim(rtrim(number_format($opacity, 3, '.', ''), '0'), '.'));
 
         $class = 'lrob-blur';
+        if ($effect_type === 'glass') {
+            $class .= ' lrob-glass';
+        }
 
         // Build inline style
         $style = sprintf(
@@ -102,6 +107,77 @@ class LRob_Gutenberg_Blur {
             esc_attr($rgba),
             esc_attr($rgba)
         );
+
+        // Add glass-specific inline styles
+        if ($effect_type === 'glass') {
+            // Border
+            $border_color = isset($attrs['lrobGlassBorderColor']) ? sanitize_hex_color(trim($attrs['lrobGlassBorderColor'])) : '#ffffff';
+            if (!$border_color) $border_color = '#ffffff';
+            $border_rgb = $this->hex_to_rgb($border_color);
+            $border_opacity_pct = isset($attrs['lrobGlassBorderOpacity']) ? max(0, min(100, intval($attrs['lrobGlassBorderOpacity']))) : 50;
+            $border_opacity = $border_opacity_pct / 100;
+
+            // Shadow uses background color
+            $shadow_intensity_pct = isset($attrs['lrobGlassShadowIntensity']) ? max(0, min(100, intval($attrs['lrobGlassShadowIntensity']))) : 70;
+            $shadow_intensity = $shadow_intensity_pct / 100;
+
+            // Calculate shadow offset INVERSE of light source
+            $light_x = isset($attrs['lrobGlassLightSourceX']) ? max(0, min(100, intval($attrs['lrobGlassLightSourceX']))) : 20;
+            $light_y = isset($attrs['lrobGlassLightSourceY']) ? max(0, min(100, intval($attrs['lrobGlassLightSourceY']))) : 20;
+            $offset_x = round((50 - $light_x) * 0.4);
+            $offset_y = round((50 - $light_y) * 0.4);
+
+            // Calculate directional border lighting
+            $light_dir_x = ($light_x - 50) / 50;
+            $light_dir_y = ($light_y - 50) / 50;
+
+            $top_intensity = max(0, -$light_dir_y);
+            $right_intensity = max(0, $light_dir_x);
+            $bottom_intensity = max(0, $light_dir_y);
+            $left_intensity = max(0, -$light_dir_x);
+
+            $border_shadows = array(
+                sprintf('inset 0 1px 0 0 rgba(%d,%d,%d,%s)',
+                    $border_rgb[0], $border_rgb[1], $border_rgb[2],
+                    rtrim(rtrim(number_format($border_opacity * (0.3 + $top_intensity * 0.7), 3, '.', ''), '0'), '.')),
+                sprintf('inset -1px 0 0 0 rgba(%d,%d,%d,%s)',
+                    $border_rgb[0], $border_rgb[1], $border_rgb[2],
+                    rtrim(rtrim(number_format($border_opacity * (0.3 + $right_intensity * 0.7), 3, '.', ''), '0'), '.')),
+                sprintf('inset 0 -1px 0 0 rgba(%d,%d,%d,%s)',
+                    $border_rgb[0], $border_rgb[1], $border_rgb[2],
+                    rtrim(rtrim(number_format($border_opacity * (0.3 + $bottom_intensity * 0.7), 3, '.', ''), '0'), '.')),
+                sprintf('inset 1px 0 0 0 rgba(%d,%d,%d,%s)',
+                    $border_rgb[0], $border_rgb[1], $border_rgb[2],
+                    rtrim(rtrim(number_format($border_opacity * (0.3 + $left_intensity * 0.7), 3, '.', ''), '0'), '.'))
+            );
+
+            $box_shadow = sprintf(
+                '%dpx %dpx 32px 0 rgba(%d,%d,%d,%s), %s',
+                $offset_x, $offset_y,
+                $rgb[0], $rgb[1], $rgb[2],
+                rtrim(rtrim(number_format($shadow_intensity, 3, '.', ''), '0'), '.'),
+                implode(', ', $border_shadows)
+            );
+
+            // Inner glow for refraction effect
+            if (!empty($attrs['lrobGlassInnerGlow'])) {
+                $glow_intensity_pct = isset($attrs['lrobGlassInnerGlowIntensity']) ? max(0, min(100, intval($attrs['lrobGlassInnerGlowIntensity']))) : 30;
+                $glow_intensity = $glow_intensity_pct / 100;
+                $glow_size = isset($attrs['lrobGlassInnerGlowSize']) ? max(0, intval($attrs['lrobGlassInnerGlowSize'])) : 20;
+                $glow_spread = isset($attrs['lrobGlassInnerGlowSpread']) ? intval($attrs['lrobGlassInnerGlowSpread']) : 0;
+
+                $glow_offset_x = round((50 - $light_x) * 0.2);
+                $glow_offset_y = round((50 - $light_y) * 0.2);
+
+                $box_shadow .= sprintf(
+                    ', inset %dpx %dpx %dpx %dpx rgba(255,255,255,%s)',
+                    $glow_offset_x, $glow_offset_y, $glow_size, $glow_spread,
+                    rtrim(rtrim(number_format($glow_intensity, 3, '.', ''), '0'), '.')
+                );
+            }
+
+            $style .= sprintf('box-shadow:%s;', esc_attr($box_shadow));
+        }
 
         // Inject class and style
         if (preg_match('/^<([a-z0-9-]+)\s/i', $block_content)) {

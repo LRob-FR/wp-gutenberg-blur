@@ -5,6 +5,12 @@ A lightweight WordPress plugin that adds backdrop blur effects to Gutenberg bloc
 ## Features
 
 - **Backdrop Blur Effects**: Apply blur effects to Group, Columns, Column, Row, and Cover blocks
+- **Glass Effect Mode**: Advanced glassmorphism with realistic lighting (industry-first for WordPress)
+  - Dynamic light source positioning
+  - Directional border illumination responding to light angle
+  - Physically-accurate shadow placement (inverse of light source)
+  - Inner glow refraction effect with customizable size and spread
+  - Full control over border color, opacity, and shadow intensity
 - **Customizable Controls**:
   - Background color picker
   - Opacity control (0-100%)
@@ -33,11 +39,19 @@ A lightweight WordPress plugin that adds backdrop blur effects to Gutenberg bloc
 2. Add a supported block (Group, Columns, Column, Row, or Cover)
 3. In the block sidebar, find the **"Blur Effect"** panel
 4. Toggle **"Enable Blur Effect"**
-5. Customize:
+5. Choose effect type:
+   - **Blur**: Standard backdrop blur effect
+   - **Glass**: Advanced glassmorphism with lighting
+6. Customize basic settings:
    - **Background Color**: Choose your color
    - **Background Opacity**: Adjust transparency (0-100%)
    - **Blur Intensity**: Set blur strength (0-25px)
    - **Saturation**: Control color saturation (0-200%)
+7. For Glass Effect, additional controls:
+   - **Border Color & Opacity**: Customize edge illumination
+   - **Light Source Position**: Control X/Y coordinates for realistic lighting
+   - **Shadow Intensity**: Adjust shadow strength
+   - **Inner Glow**: Toggle refraction effect with size and spread controls
 
 ## Development
 
@@ -129,6 +143,11 @@ For more details, see [https://www.gnu.org/licenses/gpl-2.0.html](https://www.gn
 ### 1.0.0
 - Initial release
 - Backdrop blur effects for Gutenberg blocks
+- **Glass effect mode with advanced glassmorphism** (WordPress industry-first)
+  - Dynamic light source positioning with real-time shadow calculation
+  - Directional border illumination responding to light angle
+  - Inner glow refraction effect
+  - Customizable border color, opacity, and shadow intensity
 - Customizable background color, opacity, blur, and saturation
 - Translations: English, French, Spanish, Italian, German, Portuguese, Dutch, Polish
 - Live preview in block editor

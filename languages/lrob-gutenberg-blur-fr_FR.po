@@ -25,6 +25,18 @@ msgid "Enable Blur Effect"
 msgstr "Activer l'effet de flou"
 
 #: assets/editor.js
+msgid "Effect Type"
+msgstr "Type d'effet"
+
+#: assets/editor.js
+msgid "Blur"
+msgstr "Flou"
+
+#: assets/editor.js
+msgid "Glass"
+msgstr "Verre"
+
+#: assets/editor.js
 msgid "Background Color"
 msgstr "Couleur d'arrière-plan"
 
@@ -55,6 +67,58 @@ msgstr "Saturation (%)"
 #: assets/editor.js
 msgid "Backdrop saturation level (100% = neutral)."
 msgstr "Niveau de saturation de l'arrière-plan (100% = neutre)."
+
+#: assets/editor.js
+msgid "Glass Effect Settings"
+msgstr "Paramètres de l'effet verre"
+
+#: assets/editor.js
+msgid "Border Color"
+msgstr "Couleur de bordure"
+
+#: assets/editor.js
+msgid "Border"
+msgstr "Bordure"
+
+#: assets/editor.js
+msgid "Border Opacity (%)"
+msgstr "Opacité de la bordure (%)"
+
+#: assets/editor.js
+msgid "Shadow Intensity (%)"
+msgstr "Intensité de l'ombre (%)"
+
+#: assets/editor.js
+msgid "Shadow uses background color"
+msgstr "L'ombre utilise la couleur d'arrière-plan"
+
+#: assets/editor.js
+msgid "Inner Glow (Refraction)"
+msgstr "Lueur interne (Réfraction)"
+
+#: assets/editor.js
+msgid "Glow Intensity (%)"
+msgstr "Intensité de la lueur (%)"
+
+#: assets/editor.js
+msgid "Glow Size (px)"
+msgstr "Taille de la lueur (px)"
+
+#: assets/editor.js
+msgid "Glow Spread (px)"
+msgstr "Diffusion de la lueur (px)"
+
+#: assets/editor.js
+msgid "Negative spreads inward"
+msgstr "Valeur négative : diffusion vers l'intérieur"
+
+#: assets/editor.js
+msgid "Light Source Position"
+msgstr "Position de la source lumineuse"
+
+#: assets/editor.js
+msgid "Click or drag to set light source position"
+msgstr "Cliquez ou faites glisser pour définir la position de la source lumineuse"
 
 #: lrob-gutenberg-blur.php
 msgid "Adds backdrop blur effects to Gutenberg blocks (Group, Columns, Column, Row, Cover) with customizable background color, opacity, blur intensity, and saturation controls."

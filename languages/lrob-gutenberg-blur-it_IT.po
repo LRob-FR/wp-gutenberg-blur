@@ -22,7 +22,19 @@ msgstr "Effetto sfocatura"
 
 #: assets/editor.js
 msgid "Enable Blur Effect"
-msgstr "Attiva effetto sfocatura"
+msgstr "Abilita effetto sfocatura"
+
+#: assets/editor.js
+msgid "Effect Type"
+msgstr "Tipo di effetto"
+
+#: assets/editor.js
+msgid "Blur"
+msgstr "Sfocatura"
+
+#: assets/editor.js
+msgid "Glass"
+msgstr "Vetro"
 
 #: assets/editor.js
 msgid "Background Color"
@@ -46,7 +58,7 @@ msgstr "Intensità della sfocatura (px)"
 
 #: assets/editor.js
 msgid "Backdrop blur strength in pixels."
-msgstr "Intensità della sfocatura dello sfondo in pixel."
+msgstr "Forza della sfocatura di sfondo in pixel."
 
 #: assets/editor.js
 msgid "Saturation (%)"
@@ -56,6 +68,58 @@ msgstr "Saturazione (%)"
 msgid "Backdrop saturation level (100% = neutral)."
 msgstr "Livello di saturazione dello sfondo (100% = neutro)."
 
+#: assets/editor.js
+msgid "Glass Effect Settings"
+msgstr "Impostazioni effetto vetro"
+
+#: assets/editor.js
+msgid "Border Color"
+msgstr "Colore del bordo"
+
+#: assets/editor.js
+msgid "Border"
+msgstr "Bordo"
+
+#: assets/editor.js
+msgid "Border Opacity (%)"
+msgstr "Opacità del bordo (%)"
+
+#: assets/editor.js
+msgid "Shadow Intensity (%)"
+msgstr "Intensità dell'ombra (%)"
+
+#: assets/editor.js
+msgid "Shadow uses background color"
+msgstr "L'ombra utilizza il colore di sfondo"
+
+#: assets/editor.js
+msgid "Inner Glow (Refraction)"
+msgstr "Bagliore interno (Rifrazione)"
+
+#: assets/editor.js
+msgid "Glow Intensity (%)"
+msgstr "Intensità del bagliore (%)"
+
+#: assets/editor.js
+msgid "Glow Size (px)"
+msgstr "Dimensione del bagliore (px)"
+
+#: assets/editor.js
+msgid "Glow Spread (px)"
+msgstr "Diffusione del bagliore (px)"
+
+#: assets/editor.js
+msgid "Negative spreads inward"
+msgstr "Valore negativo: diffusione verso l'interno"
+
+#: assets/editor.js
+msgid "Light Source Position"
+msgstr "Posizione della sorgente luminosa"
+
+#: assets/editor.js
+msgid "Click or drag to set light source position"
+msgstr "Fare clic o trascinare per impostare la posizione della sorgente luminosa"
+
 #: lrob-gutenberg-blur.php
 msgid "Adds backdrop blur effects to Gutenberg blocks (Group, Columns, Column, Row, Cover) with customizable background color, opacity, blur intensity, and saturation controls."
-msgstr "Aggiunge effetti di sfocatura dello sfondo ai blocchi Gutenberg (Gruppo, Colonne, Colonna, Riga, Copertina) con controlli personalizzabili per colore di sfondo, opacità, intensità della sfocatura e saturazione."
+msgstr "Aggiunge effetti di sfocatura di sfondo ai blocchi Gutenberg (Gruppo, Colonne, Colonna, Riga, Copertina) con controlli personalizzabili di colore di sfondo, opacità, intensità di sfocatura e saturazione."

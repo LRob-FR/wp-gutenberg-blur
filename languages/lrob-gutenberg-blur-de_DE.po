@@ -25,6 +25,18 @@ msgid "Enable Blur Effect"
 msgstr "Unschärfe-Effekt aktivieren"
 
 #: assets/editor.js
+msgid "Effect Type"
+msgstr "Effekttyp"
+
+#: assets/editor.js
+msgid "Blur"
+msgstr "Unschärfe"
+
+#: assets/editor.js
+msgid "Glass"
+msgstr "Glas"
+
+#: assets/editor.js
 msgid "Background Color"
 msgstr "Hintergrundfarbe"
 
@@ -54,8 +66,60 @@ msgstr "Sättigung (%)"
 
 #: assets/editor.js
 msgid "Backdrop saturation level (100% = neutral)."
-msgstr "Hintergrund-Sättigungsstufe (100% = neutral)."
+msgstr "Hintergrund-Sättigungsgrad (100% = neutral)."
+
+#: assets/editor.js
+msgid "Glass Effect Settings"
+msgstr "Glas-Effekt Einstellungen"
+
+#: assets/editor.js
+msgid "Border Color"
+msgstr "Rahmenfarbe"
+
+#: assets/editor.js
+msgid "Border"
+msgstr "Rahmen"
+
+#: assets/editor.js
+msgid "Border Opacity (%)"
+msgstr "Rahmen-Deckkraft (%)"
+
+#: assets/editor.js
+msgid "Shadow Intensity (%)"
+msgstr "Schatten-Intensität (%)"
+
+#: assets/editor.js
+msgid "Shadow uses background color"
+msgstr "Schatten verwendet Hintergrundfarbe"
+
+#: assets/editor.js
+msgid "Inner Glow (Refraction)"
+msgstr "Inneres Leuchten (Brechung)"
+
+#: assets/editor.js
+msgid "Glow Intensity (%)"
+msgstr "Leucht-Intensität (%)"
+
+#: assets/editor.js
+msgid "Glow Size (px)"
+msgstr "Leuchtgröße (px)"
+
+#: assets/editor.js
+msgid "Glow Spread (px)"
+msgstr "Leuchtstreuung (px)"
+
+#: assets/editor.js
+msgid "Negative spreads inward"
+msgstr "Negativer Wert: Streuung nach innen"
+
+#: assets/editor.js
+msgid "Light Source Position"
+msgstr "Position der Lichtquelle"
+
+#: assets/editor.js
+msgid "Click or drag to set light source position"
+msgstr "Klicken oder ziehen Sie, um die Position der Lichtquelle festzulegen"
 
 #: lrob-gutenberg-blur.php
 msgid "Adds backdrop blur effects to Gutenberg blocks (Group, Columns, Column, Row, Cover) with customizable background color, opacity, blur intensity, and saturation controls."
-msgstr "Fügt Hintergrund-Unschärfeeffekte zu Gutenberg-Blöcken (Gruppe, Spalten, Spalte, Zeile, Cover) mit anpassbaren Steuerelementen für Hintergrundfarbe, Deckkraft, Unschärfe-Intensität und Sättigung hinzu."
+msgstr "Fügt Hintergrund-Unschärfeeffekte zu Gutenberg-Blöcken (Gruppe, Spalten, Spalte, Zeile, Abdeckung) mit anpassbaren Steuerelementen für Hintergrundfarbe, Deckkraft, Unschärfe-Intensität und Sättigung hinzu."

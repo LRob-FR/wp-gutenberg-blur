@@ -25,6 +25,18 @@ msgid "Enable Blur Effect"
 msgstr "Ativar efeito de desfoque"
 
 #: assets/editor.js
+msgid "Effect Type"
+msgstr "Tipo de efeito"
+
+#: assets/editor.js
+msgid "Blur"
+msgstr "Desfoque"
+
+#: assets/editor.js
+msgid "Glass"
+msgstr "Vidro"
+
+#: assets/editor.js
 msgid "Background Color"
 msgstr "Cor de fundo"
 
@@ -46,7 +58,7 @@ msgstr "Intensidade do desfoque (px)"
 
 #: assets/editor.js
 msgid "Backdrop blur strength in pixels."
-msgstr "Intensidade do desfoque de fundo em pixels."
+msgstr "Força do desfoque de fundo em pixels."
 
 #: assets/editor.js
 msgid "Saturation (%)"
@@ -55,6 +67,58 @@ msgstr "Saturação (%)"
 #: assets/editor.js
 msgid "Backdrop saturation level (100% = neutral)."
 msgstr "Nível de saturação do fundo (100% = neutro)."
+
+#: assets/editor.js
+msgid "Glass Effect Settings"
+msgstr "Configurações do efeito vidro"
+
+#: assets/editor.js
+msgid "Border Color"
+msgstr "Cor da borda"
+
+#: assets/editor.js
+msgid "Border"
+msgstr "Borda"
+
+#: assets/editor.js
+msgid "Border Opacity (%)"
+msgstr "Opacidade da borda (%)"
+
+#: assets/editor.js
+msgid "Shadow Intensity (%)"
+msgstr "Intensidade da sombra (%)"
+
+#: assets/editor.js
+msgid "Shadow uses background color"
+msgstr "A sombra usa a cor de fundo"
+
+#: assets/editor.js
+msgid "Inner Glow (Refraction)"
+msgstr "Brilho interno (Refração)"
+
+#: assets/editor.js
+msgid "Glow Intensity (%)"
+msgstr "Intensidade do brilho (%)"
+
+#: assets/editor.js
+msgid "Glow Size (px)"
+msgstr "Tamanho do brilho (px)"
+
+#: assets/editor.js
+msgid "Glow Spread (px)"
+msgstr "Difusão do brilho (px)"
+
+#: assets/editor.js
+msgid "Negative spreads inward"
+msgstr "Valor negativo: difusão para dentro"
+
+#: assets/editor.js
+msgid "Light Source Position"
+msgstr "Posição da fonte de luz"
+
+#: assets/editor.js
+msgid "Click or drag to set light source position"
+msgstr "Clique ou arraste para definir a posição da fonte de luz"
 
 #: lrob-gutenberg-blur.php
 msgid "Adds backdrop blur effects to Gutenberg blocks (Group, Columns, Column, Row, Cover) with customizable background color, opacity, blur intensity, and saturation controls."
