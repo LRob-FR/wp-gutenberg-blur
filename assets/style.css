@@ -1,0 +1,26 @@
+/* ============ LRob Gutenberg Blur ============ */
+/* Applies to both editor and frontend */
+
+.lrob-blur {
+  display: block;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  border-radius: inherit;
+
+  /* Background color set inline via backgroundColor */
+  background-color: var(--lrob-bg-color, rgba(0, 0, 0, 0));
+
+  /* Backdrop blur and saturation effects */
+  backdrop-filter: blur(var(--lrob-blur, 0px)) saturate(var(--lrob-saturation, 100%));
+  -webkit-backdrop-filter: blur(var(--lrob-blur, 0px)) saturate(var(--lrob-saturation, 100%));
+
+  /* Subtle border for visual definition */
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+/* Editor selection outline */
+.block-editor-block-list__block.lrob-blur.is-selected {
+  outline: 2px solid var(--wp-admin-theme-color);
+  outline-offset: 0;
+}

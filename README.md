@@ -1,0 +1,135 @@
+# LRob - Gutenberg Blur
+
+A lightweight WordPress plugin that adds backdrop blur effects to Gutenberg blocks.
+
+## Features
+
+- **Backdrop Blur Effects**: Apply blur effects to Group, Columns, Column, Row, and Cover blocks
+- **Customizable Controls**:
+  - Background color picker
+  - Opacity control (0-100%)
+  - Blur intensity (0-25px)
+  - Saturation adjustment (0-200%)
+- **Live Preview**: See changes instantly in the block editor
+- **Frontend Parity**: Editor appearance matches frontend exactly
+- **Multilingual Ready**: Full i18n support (English + French included)
+
+## Prerequisite
+
+- **WordPress Version**: 6.8+
+- **PHP Version**: 8.2+
+- **Gutenberg**: Block editor enabled
+
+## Installation
+
+1. Download the latest release ZIP
+2. Upload to WordPress via Plugins → Add New → Upload Plugin
+3. Activate the plugin
+4. Edit any page and select a supported block to see the "Blur Effect" panel
+
+## Usage
+
+1. Create or edit a page in the block editor
+2. Add a supported block (Group, Columns, Column, Row, or Cover)
+3. In the block sidebar, find the **"Blur Effect"** panel
+4. Toggle **"Enable Blur Effect"**
+5. Customize:
+   - **Background Color**: Choose your color
+   - **Background Opacity**: Adjust transparency (0-100%)
+   - **Blur Intensity**: Set blur strength (0-25px)
+   - **Saturation**: Control color saturation (0-200%)
+
+## Development
+
+### Building a Release
+
+Requirements:
+- PHP CLI
+- WP-CLI
+- gettext (msgfmt)
+- zip
+
+```bash
+# Install dependencies (Fedora/RHEL)
+sudo dnf install php-cli php-mbstring wp-cli gettext zip
+
+# Build release
+cd lrob-gutenberg-blur/
+./release.sh
+```
+
+The script will:
+1. Generate translation template (.pot)
+2. Compile translations (.po → .mo)
+3. Create a clean ZIP in `../releases/`
+
+### Translation
+
+The plugin is translation-ready with English as the default language.
+
+**Included translations:**
+- French (fr_FR)
+- Spanish (es_ES)
+- Italian (it_IT)
+- German (de_DE)
+- Portuguese (pt_PT)
+- Dutch (nl_NL)
+- Polish (pl_PL)
+
+**Adding a new language:**
+
+```bash
+# Create translation file
+cp languages/lrob-gutenberg-blur-fr_FR.po languages/lrob-gutenberg-blur-es_ES.po
+
+# Edit and translate
+nano languages/lrob-gutenberg-blur-es_ES.po
+
+# Build release (automatically compiles all .po files)
+./release.sh
+```
+
+## Technical Details
+
+- **Text Domain**: `lrob-gutenberg-blur`
+- **Supported Blocks**: core/group, core/columns, core/column, core/row, core/cover
+- **CSS Variables**: `--lrob-blur`, `--lrob-saturation`, `--lrob-bg-color`
+- **Browser Compatibility**: Modern browsers with backdrop-filter support
+
+## Support
+
+For support, please visit [LRob](https://www.lrob.fr/)
+
+## Credits
+
+**Developed by [LRob, Hébergeur web spécialiste WordPress](https://www.lrob.fr/)**
+
+## License
+
+LRob - Gutenberg Blur
+Copyright (c) 2025 LRob
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, see <https://www.gnu.org/licenses/>.
+
+For more details, see [https://www.gnu.org/licenses/gpl-2.0.html](https://www.gnu.org/licenses/gpl-2.0.html).
+
+## Changelog
+
+### 1.0.0
+- Initial release
+- Backdrop blur effects for Gutenberg blocks
+- Customizable background color, opacity, blur, and saturation
+- Translations: English, French, Spanish, Italian, German, Portuguese, Dutch, Polish
+- Live preview in block editor
+- Frontend/editor parity

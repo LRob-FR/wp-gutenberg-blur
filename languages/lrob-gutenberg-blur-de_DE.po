@@ -1,0 +1,61 @@
+# Translation file for LRob - Gutenberg Blur
+# Copyright (c) 2025 LRob
+# This file is distributed under the same license as the LRob - Gutenberg Blur plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: LRob - Gutenberg Blur 1.0.0\n"
+"Report-Msgid-Bugs-To: https://www.lrob.fr/\n"
+"POT-Creation-Date: 2025-01-08 12:00+0000\n"
+"PO-Revision-Date: 2025-01-08 12:00+0000\n"
+"Last-Translator: LRob <contact@lrob.fr>\n"
+"Language-Team: German\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: WP-CLI\n"
+
+#: assets/editor.js
+msgid "Blur Effect"
+msgstr "Unschärfe-Effekt"
+
+#: assets/editor.js
+msgid "Enable Blur Effect"
+msgstr "Unschärfe-Effekt aktivieren"
+
+#: assets/editor.js
+msgid "Background Color"
+msgstr "Hintergrundfarbe"
+
+#: assets/editor.js
+msgid "Background"
+msgstr "Hintergrund"
+
+#: assets/editor.js
+msgid "Background Opacity (%)"
+msgstr "Hintergrund-Deckkraft (%)"
+
+#: assets/editor.js
+msgid "Controls the opacity of the background color."
+msgstr "Steuert die Deckkraft der Hintergrundfarbe."
+
+#: assets/editor.js
+msgid "Blur Intensity (px)"
+msgstr "Unschärfe-Intensität (px)"
+
+#: assets/editor.js
+msgid "Backdrop blur strength in pixels."
+msgstr "Hintergrund-Unschärfestärke in Pixeln."
+
+#: assets/editor.js
+msgid "Saturation (%)"
+msgstr "Sättigung (%)"
+
+#: assets/editor.js
+msgid "Backdrop saturation level (100% = neutral)."
+msgstr "Hintergrund-Sättigungsstufe (100% = neutral)."
+
+#: lrob-gutenberg-blur.php
+msgid "Adds backdrop blur effects to Gutenberg blocks (Group, Columns, Column, Row, Cover) with customizable background color, opacity, blur intensity, and saturation controls."
+msgstr "Fügt Hintergrund-Unschärfeeffekte zu Gutenberg-Blöcken (Gruppe, Spalten, Spalte, Zeile, Cover) mit anpassbaren Steuerelementen für Hintergrundfarbe, Deckkraft, Unschärfe-Intensität und Sättigung hinzu."

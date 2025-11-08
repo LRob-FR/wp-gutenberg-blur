@@ -1,0 +1,61 @@
+# Translation file for LRob - Gutenberg Blur
+# Copyright (c) 2025 LRob
+# This file is distributed under the same license as the LRob - Gutenberg Blur plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: LRob - Gutenberg Blur 1.0.0\n"
+"Report-Msgid-Bugs-To: https://www.lrob.fr/\n"
+"POT-Creation-Date: 2025-01-08 12:00+0000\n"
+"PO-Revision-Date: 2025-01-08 12:00+0000\n"
+"Last-Translator: LRob <contact@lrob.fr>\n"
+"Language-Team: Italian\n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: WP-CLI\n"
+
+#: assets/editor.js
+msgid "Blur Effect"
+msgstr "Effetto sfocatura"
+
+#: assets/editor.js
+msgid "Enable Blur Effect"
+msgstr "Attiva effetto sfocatura"
+
+#: assets/editor.js
+msgid "Background Color"
+msgstr "Colore di sfondo"
+
+#: assets/editor.js
+msgid "Background"
+msgstr "Sfondo"
+
+#: assets/editor.js
+msgid "Background Opacity (%)"
+msgstr "Opacità dello sfondo (%)"
+
+#: assets/editor.js
+msgid "Controls the opacity of the background color."
+msgstr "Controlla l'opacità del colore di sfondo."
+
+#: assets/editor.js
+msgid "Blur Intensity (px)"
+msgstr "Intensità della sfocatura (px)"
+
+#: assets/editor.js
+msgid "Backdrop blur strength in pixels."
+msgstr "Intensità della sfocatura dello sfondo in pixel."
+
+#: assets/editor.js
+msgid "Saturation (%)"
+msgstr "Saturazione (%)"
+
+#: assets/editor.js
+msgid "Backdrop saturation level (100% = neutral)."
+msgstr "Livello di saturazione dello sfondo (100% = neutro)."
+
+#: lrob-gutenberg-blur.php
+msgid "Adds backdrop blur effects to Gutenberg blocks (Group, Columns, Column, Row, Cover) with customizable background color, opacity, blur intensity, and saturation controls."
+msgstr "Aggiunge effetti di sfocatura dello sfondo ai blocchi Gutenberg (Gruppo, Colonne, Colonna, Riga, Copertina) con controlli personalizzabili per colore di sfondo, opacità, intensità della sfocatura e saturazione."
