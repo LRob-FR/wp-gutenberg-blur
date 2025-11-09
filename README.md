@@ -112,7 +112,7 @@ nano languages/lrob-gutenberg-blur-es_ES.po
 
 ## Support
 
-For support, please visit [LRob](https://www.lrob.fr/)
+For support, please [open an issue](https://github.com/LRob-FR/wp-gutenberg-blur/issues) or [contact LRob directly](https://www.lrob.fr/contact/)
 
 ## Credits
 
