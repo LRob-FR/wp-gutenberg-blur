@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: LRob - Gutenberg Blur
- * Plugin URI: https://www.lrob.fr/
+ * Plugin URI: https://github.com/LRob-FR/wp-gutenberg-blur/
  * Description: Adds backdrop blur effects to Gutenberg blocks (Group, Columns, Column, Row, Cover) with customizable background color, opacity, blur intensity, and saturation controls.
  * Version: 1.0.1
  * Author: LRob
