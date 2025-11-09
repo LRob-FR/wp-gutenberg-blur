@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LRob - Gutenberg Blur 1.0.0\n"
 "Report-Msgid-Bugs-To: https://www.lrob.fr/\n"
-"POT-Creation-Date: 2025-01-08 12:00+0000\n"
-"PO-Revision-Date: 2025-01-08 12:00+0000\n"
+"POT-Creation-Date: 2025-01-09 14:00+0000\n"
+"PO-Revision-Date: 2025-01-09 14:00+0000\n"
 "Last-Translator: LRob <contact@lrob.fr>\n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -16,110 +16,90 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: WP-CLI\n"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Blur Effect"
 msgstr "Effetto sfocatura"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Enable Blur Effect"
-msgstr "Abilita effetto sfocatura"
+msgstr "Attiva effetto sfocatura"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Effect Type"
 msgstr "Tipo di effetto"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Blur"
 msgstr "Sfocatura"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Glass"
 msgstr "Vetro"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Background Color"
 msgstr "Colore di sfondo"
 
-#: assets/editor.js
-msgid "Background"
-msgstr "Sfondo"
+#: assets/editor-inspector.js
+msgid "Color"
+msgstr "Colore"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Background Opacity (%)"
 msgstr "Opacità dello sfondo (%)"
 
-#: assets/editor.js
-msgid "Controls the opacity of the background color."
-msgstr "Controlla l'opacità del colore di sfondo."
-
-#: assets/editor.js
-msgid "Blur Intensity (px)"
+#: assets/editor-inspector.js
+msgid "Blur Amount (px)"
 msgstr "Intensità della sfocatura (px)"
 
-#: assets/editor.js
-msgid "Backdrop blur strength in pixels."
-msgstr "Forza della sfocatura di sfondo in pixel."
-
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Saturation (%)"
 msgstr "Saturazione (%)"
 
-#: assets/editor.js
-msgid "Backdrop saturation level (100% = neutral)."
-msgstr "Livello di saturazione dello sfondo (100% = neutro)."
+#: assets/editor-inspector.js
+msgid "Glass Border Color"
+msgstr "Colore del bordo del vetro"
 
-#: assets/editor.js
-msgid "Glass Effect Settings"
-msgstr "Impostazioni effetto vetro"
-
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Border Color"
 msgstr "Colore del bordo"
 
-#: assets/editor.js
-msgid "Border"
-msgstr "Bordo"
+#: assets/editor-inspector.js
+msgid "Glass Border Opacity (%)"
+msgstr "Opacità del bordo del vetro (%)"
 
-#: assets/editor.js
-msgid "Border Opacity (%)"
-msgstr "Opacità del bordo (%)"
+#: assets/editor-inspector.js
+msgid "Glass Shadow Intensity (%)"
+msgstr "Intensità dell'ombra del vetro (%)"
 
-#: assets/editor.js
-msgid "Shadow Intensity (%)"
-msgstr "Intensità dell'ombra (%)"
+#: assets/editor-inspector.js
+msgid "Enable Inner Glow"
+msgstr "Attiva bagliore interno"
 
-#: assets/editor.js
-msgid "Shadow uses background color"
-msgstr "L'ombra utilizza il colore di sfondo"
+#: assets/editor-inspector.js
+msgid "Inner Glow Intensity (%)"
+msgstr "Intensità del bagliore interno (%)"
 
-#: assets/editor.js
-msgid "Inner Glow (Refraction)"
-msgstr "Bagliore interno (Rifrazione)"
+#: assets/editor-inspector.js
+msgid "Inner Glow Size (px)"
+msgstr "Dimensione del bagliore interno (px)"
 
-#: assets/editor.js
-msgid "Glow Intensity (%)"
-msgstr "Intensità del bagliore (%)"
+#: assets/editor-inspector.js
+msgid "Inner Glow Spread (px)"
+msgstr "Diffusione del bagliore interno (px)"
 
-#: assets/editor.js
-msgid "Glow Size (px)"
-msgstr "Dimensione del bagliore (px)"
-
-#: assets/editor.js
-msgid "Glow Spread (px)"
-msgstr "Diffusione del bagliore (px)"
-
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Negative spreads inward"
-msgstr "Valore negativo: diffusione verso l'interno"
+msgstr "Valori negativi si diffondono verso l'interno"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Light Source Position"
 msgstr "Posizione della sorgente luminosa"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Click or drag to set light source position"
-msgstr "Fare clic o trascinare per impostare la posizione della sorgente luminosa"
+msgstr "Fai clic o trascina per impostare la posizione della sorgente luminosa"
 
 #: lrob-gutenberg-blur.php
 msgid "Adds backdrop blur effects to Gutenberg blocks (Group, Columns, Column, Row, Cover) with customizable background color, opacity, blur intensity, and saturation controls."
-msgstr "Aggiunge effetti di sfocatura di sfondo ai blocchi Gutenberg (Gruppo, Colonne, Colonna, Riga, Copertina) con controlli personalizzabili di colore di sfondo, opacità, intensità di sfocatura e saturazione."
+msgstr "Aggiunge effetti di sfocatura dello sfondo ai blocchi Gutenberg (Gruppo, Colonne, Colonna, Riga, Copertina) con controlli personalizzabili per colore di sfondo, opacità, intensità della sfocatura e saturazione."

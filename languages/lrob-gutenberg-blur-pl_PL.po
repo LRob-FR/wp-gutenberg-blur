@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LRob - Gutenberg Blur 1.0.0\n"
 "Report-Msgid-Bugs-To: https://www.lrob.fr/\n"
-"POT-Creation-Date: 2025-01-08 12:00+0000\n"
-"PO-Revision-Date: 2025-01-08 12:00+0000\n"
+"POT-Creation-Date: 2025-01-09 14:00+0000\n"
+"PO-Revision-Date: 2025-01-09 14:00+0000\n"
 "Last-Translator: LRob <contact@lrob.fr>\n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -16,110 +16,90 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: WP-CLI\n"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Blur Effect"
 msgstr "Efekt rozmycia"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Enable Blur Effect"
 msgstr "Włącz efekt rozmycia"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Effect Type"
-msgstr "Rodzaj efektu"
+msgstr "Typ efektu"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Blur"
 msgstr "Rozmycie"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Glass"
 msgstr "Szkło"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Background Color"
 msgstr "Kolor tła"
 
-#: assets/editor.js
-msgid "Background"
-msgstr "Tło"
+#: assets/editor-inspector.js
+msgid "Color"
+msgstr "Kolor"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Background Opacity (%)"
-msgstr "Nieprzezroczystość tła (%)"
+msgstr "Przezroczystość tła (%)"
 
-#: assets/editor.js
-msgid "Controls the opacity of the background color."
-msgstr "Kontroluje nieprzezroczystość koloru tła."
-
-#: assets/editor.js
-msgid "Blur Intensity (px)"
+#: assets/editor-inspector.js
+msgid "Blur Amount (px)"
 msgstr "Intensywność rozmycia (px)"
 
-#: assets/editor.js
-msgid "Backdrop blur strength in pixels."
-msgstr "Siła rozmycia tła w pikselach."
-
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Saturation (%)"
 msgstr "Nasycenie (%)"
 
-#: assets/editor.js
-msgid "Backdrop saturation level (100% = neutral)."
-msgstr "Poziom nasycenia tła (100% = neutralny)."
+#: assets/editor-inspector.js
+msgid "Glass Border Color"
+msgstr "Kolor obramowania szkła"
 
-#: assets/editor.js
-msgid "Glass Effect Settings"
-msgstr "Ustawienia efektu szkła"
-
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Border Color"
 msgstr "Kolor obramowania"
 
-#: assets/editor.js
-msgid "Border"
-msgstr "Obramowanie"
+#: assets/editor-inspector.js
+msgid "Glass Border Opacity (%)"
+msgstr "Przezroczystość obramowania szkła (%)"
 
-#: assets/editor.js
-msgid "Border Opacity (%)"
-msgstr "Nieprzezroczystość obramowania (%)"
+#: assets/editor-inspector.js
+msgid "Glass Shadow Intensity (%)"
+msgstr "Intensywność cienia szkła (%)"
 
-#: assets/editor.js
-msgid "Shadow Intensity (%)"
-msgstr "Intensywność cienia (%)"
+#: assets/editor-inspector.js
+msgid "Enable Inner Glow"
+msgstr "Włącz wewnętrzną poświatę"
 
-#: assets/editor.js
-msgid "Shadow uses background color"
-msgstr "Cień wykorzystuje kolor tła"
+#: assets/editor-inspector.js
+msgid "Inner Glow Intensity (%)"
+msgstr "Intensywność wewnętrznej poświaty (%)"
 
-#: assets/editor.js
-msgid "Inner Glow (Refraction)"
-msgstr "Wewnętrzna poświata (Refrakcja)"
+#: assets/editor-inspector.js
+msgid "Inner Glow Size (px)"
+msgstr "Rozmiar wewnętrznej poświaty (px)"
 
-#: assets/editor.js
-msgid "Glow Intensity (%)"
-msgstr "Intensywność poświaty (%)"
+#: assets/editor-inspector.js
+msgid "Inner Glow Spread (px)"
+msgstr "Rozproszenie wewnętrznej poświaty (px)"
 
-#: assets/editor.js
-msgid "Glow Size (px)"
-msgstr "Rozmiar poświaty (px)"
-
-#: assets/editor.js
-msgid "Glow Spread (px)"
-msgstr "Rozprzestrzenianie poświaty (px)"
-
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Negative spreads inward"
-msgstr "Wartość ujemna: rozprzestrzenianie do wewnątrz"
+msgstr "Wartości ujemne rozprzestrzeniają się do wewnątrz"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Light Source Position"
 msgstr "Pozycja źródła światła"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Click or drag to set light source position"
 msgstr "Kliknij lub przeciągnij, aby ustawić pozycję źródła światła"
 
 #: lrob-gutenberg-blur.php
 msgid "Adds backdrop blur effects to Gutenberg blocks (Group, Columns, Column, Row, Cover) with customizable background color, opacity, blur intensity, and saturation controls."
-msgstr "Dodaje efekty rozmycia tła do bloków Gutenberga (Grupa, Kolumny, Kolumna, Wiersz, Okładka) z konfigurowalnymi kontrolkami koloru tła, nieprzezroczystości, intensywności rozmycia i nasycenia."
+msgstr "Dodaje efekty rozmycia tła do bloków Gutenberga (Grupa, Kolumny, Kolumna, Wiersz, Okładka) z konfigurowalnymi kontrolami koloru tła, przezroczystości, intensywności rozmycia i nasycenia."

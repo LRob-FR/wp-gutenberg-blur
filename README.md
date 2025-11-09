@@ -152,3 +152,15 @@ For more details, see [https://www.gnu.org/licenses/gpl-2.0.html](https://www.gn
 - Translations: English, French, Spanish, Italian, German, Portuguese, Dutch, Polish
 - Live preview in block editor
 - Frontend/editor parity
+
+### 1.0.1
+#### Optimization
+- Frontend now loads only CSS (no JavaScript) - conditional loading only on pages with blur blocks
+- Added transient caching to avoid expensive block parsing on every page load
+#### Code Organization
+- Split monolithic JavaScript into modular files for better maintainability
+- Separated editor-only code from frontend code
+#### Deprecation & Translation Fixes
+- Fixed WordPress 6.7+ deprecation warnings for form components
+- Fixed JavaScript translations not loading (now generates proper JSON files)
+- Updated build script to include JS translations in release

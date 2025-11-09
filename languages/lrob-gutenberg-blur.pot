@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the LRob - Gutenberg Blur plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: LRob - Gutenberg Blur 1.0.0\n"
+"Project-Id-Version: LRob - Gutenberg Blur 1.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/lrob-gutenberg-blur\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-11-08T23:36:55+00:00\n"
+"POT-Creation-Date: 2025-11-09T15:02:14+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: lrob-gutenberg-blur\n"
@@ -29,4 +29,156 @@ msgstr ""
 
 #. Author of the plugin
 msgid "LRob"
+msgstr ""
+
+#: assets/editor-inspector.js:40
+#: assets/editor.js:86
+msgid "Light Source Position"
+msgstr ""
+
+#: assets/editor-inspector.js:116
+#: assets/editor.js:163
+msgid "Click or drag to set light source position"
+msgstr ""
+
+#: assets/editor-inspector.js:125
+#: assets/editor.js:172
+msgid "Blur Effect"
+msgstr ""
+
+#: assets/editor-inspector.js:127
+#: assets/editor.js:174
+msgid "Enable Blur Effect"
+msgstr ""
+
+#: assets/editor-inspector.js:133
+#: assets/editor.js:179
+msgid "Effect Type"
+msgstr ""
+
+#: assets/editor-inspector.js:136
+#: assets/editor.js:182
+msgid "Blur"
+msgstr ""
+
+#: assets/editor-inspector.js:137
+#: assets/editor.js:183
+msgid "Glass"
+msgstr ""
+
+#: assets/editor-inspector.js:144
+#: assets/editor.js:188
+msgid "Background Color"
+msgstr ""
+
+#: assets/editor-inspector.js:149
+msgid "Color"
+msgstr ""
+
+#: assets/editor-inspector.js:154
+#: assets/editor.js:199
+msgid "Background Opacity (%)"
+msgstr ""
+
+#: assets/editor-inspector.js:164
+msgid "Blur Amount (px)"
+msgstr ""
+
+#: assets/editor-inspector.js:174
+#: assets/editor.js:213
+msgid "Saturation (%)"
+msgstr ""
+
+#: assets/editor-inspector.js:184
+msgid "Glass Border Color"
+msgstr ""
+
+#: assets/editor-inspector.js:189
+#: assets/editor.js:223
+msgid "Border Color"
+msgstr ""
+
+#: assets/editor-inspector.js:194
+msgid "Glass Border Opacity (%)"
+msgstr ""
+
+#: assets/editor-inspector.js:204
+msgid "Glass Shadow Intensity (%)"
+msgstr ""
+
+#: assets/editor-inspector.js:214
+msgid "Enable Inner Glow"
+msgstr ""
+
+#: assets/editor-inspector.js:220
+msgid "Inner Glow Intensity (%)"
+msgstr ""
+
+#: assets/editor-inspector.js:230
+msgid "Inner Glow Size (px)"
+msgstr ""
+
+#: assets/editor-inspector.js:240
+msgid "Inner Glow Spread (px)"
+msgstr ""
+
+#: assets/editor-inspector.js:246
+#: assets/editor.js:270
+msgid "Negative spreads inward"
+msgstr ""
+
+#: assets/editor.js:192
+msgid "Background"
+msgstr ""
+
+#: assets/editor.js:203
+msgid "Controls the opacity of the background color."
+msgstr ""
+
+#: assets/editor.js:206
+msgid "Blur Intensity (px)"
+msgstr ""
+
+#: assets/editor.js:210
+msgid "Backdrop blur strength in pixels."
+msgstr ""
+
+#: assets/editor.js:217
+msgid "Backdrop saturation level (100% = neutral)."
+msgstr ""
+
+#: assets/editor.js:221
+msgid "Glass Effect Settings"
+msgstr ""
+
+#: assets/editor.js:227
+msgid "Border"
+msgstr ""
+
+#: assets/editor.js:234
+msgid "Border Opacity (%)"
+msgstr ""
+
+#: assets/editor.js:240
+msgid "Shadow Intensity (%)"
+msgstr ""
+
+#: assets/editor.js:244
+msgid "Shadow uses background color"
+msgstr ""
+
+#: assets/editor.js:247
+msgid "Inner Glow (Refraction)"
+msgstr ""
+
+#: assets/editor.js:252
+msgid "Glow Intensity (%)"
+msgstr ""
+
+#: assets/editor.js:258
+msgid "Glow Size (px)"
+msgstr ""
+
+#: assets/editor.js:266
+msgid "Glow Spread (px)"
 msgstr ""

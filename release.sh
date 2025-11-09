@@ -113,14 +113,42 @@ generate_pot() {
 
     wp i18n make-pot "$SCRIPT_DIR" "$LANGUAGES_DIR/${PLUGIN_SLUG}.pot" \
         --domain="$PLUGIN_SLUG" \
-        --package-name="LRob - Gutenberg Blur" \
-        --skip-js
+        --package-name="LRob - Gutenberg Blur"
 
     if [ $? -eq 0 ]; then
         print_success "POT file generated: ${LANGUAGES_DIR}/${PLUGIN_SLUG}.pot"
     else
         print_error "Failed to generate POT file"
         exit 1
+    fi
+}
+
+# Generate JSON translations for JavaScript
+generate_json_translations() {
+    print_status "Generating JSON translations for JavaScript..."
+
+    local generated=0
+
+    shopt -s nullglob
+    local po_files=("$LANGUAGES_DIR"/*.po)
+    shopt -u nullglob
+
+    if [ ${#po_files[@]} -eq 0 ]; then
+        print_warning "No .po files found to convert to JSON"
+        return 0
+    fi
+
+    for po_file in "${po_files[@]}"; do
+        if wp i18n make-json "$LANGUAGES_DIR" --no-purge 2>/dev/null; then
+            print_success "Generated JSON for: $(basename "$po_file")"
+            generated=$((generated + 1))
+        else
+            print_error "Failed to generate JSON for: $(basename "$po_file")"
+        fi
+    done
+
+    if [ $generated -gt 0 ]; then
+        print_success "Generated JSON for $generated translation file(s)"
     fi
 }
 
@@ -220,6 +248,7 @@ main() {
     # Build process
     generate_pot
     compile_translations
+    generate_json_translations
     create_archive "$VERSION"
 
     echo ""

@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LRob - Gutenberg Blur 1.0.0\n"
 "Report-Msgid-Bugs-To: https://www.lrob.fr/\n"
-"POT-Creation-Date: 2025-01-08 12:00+0000\n"
-"PO-Revision-Date: 2025-01-08 12:00+0000\n"
+"POT-Creation-Date: 2025-01-09 14:00+0000\n"
+"PO-Revision-Date: 2025-01-09 14:00+0000\n"
 "Last-Translator: LRob <contact@lrob.fr>\n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -16,107 +16,87 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: WP-CLI\n"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Blur Effect"
 msgstr "Effet de flou"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Enable Blur Effect"
 msgstr "Activer l'effet de flou"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Effect Type"
 msgstr "Type d'effet"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Blur"
 msgstr "Flou"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Glass"
 msgstr "Verre"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Background Color"
 msgstr "Couleur d'arrière-plan"
 
-#: assets/editor.js
-msgid "Background"
-msgstr "Arrière-plan"
+#: assets/editor-inspector.js
+msgid "Color"
+msgstr "Couleur"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Background Opacity (%)"
 msgstr "Opacité de l'arrière-plan (%)"
 
-#: assets/editor.js
-msgid "Controls the opacity of the background color."
-msgstr "Contrôle l'opacité de la couleur d'arrière-plan."
-
-#: assets/editor.js
-msgid "Blur Intensity (px)"
+#: assets/editor-inspector.js
+msgid "Blur Amount (px)"
 msgstr "Intensité du flou (px)"
 
-#: assets/editor.js
-msgid "Backdrop blur strength in pixels."
-msgstr "Force du flou d'arrière-plan en pixels."
-
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Saturation (%)"
 msgstr "Saturation (%)"
 
-#: assets/editor.js
-msgid "Backdrop saturation level (100% = neutral)."
-msgstr "Niveau de saturation de l'arrière-plan (100% = neutre)."
+#: assets/editor-inspector.js
+msgid "Glass Border Color"
+msgstr "Couleur de bordure du verre"
 
-#: assets/editor.js
-msgid "Glass Effect Settings"
-msgstr "Paramètres de l'effet verre"
-
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Border Color"
 msgstr "Couleur de bordure"
 
-#: assets/editor.js
-msgid "Border"
-msgstr "Bordure"
+#: assets/editor-inspector.js
+msgid "Glass Border Opacity (%)"
+msgstr "Opacité de la bordure du verre (%)"
 
-#: assets/editor.js
-msgid "Border Opacity (%)"
-msgstr "Opacité de la bordure (%)"
+#: assets/editor-inspector.js
+msgid "Glass Shadow Intensity (%)"
+msgstr "Intensité de l'ombre du verre (%)"
 
-#: assets/editor.js
-msgid "Shadow Intensity (%)"
-msgstr "Intensité de l'ombre (%)"
+#: assets/editor-inspector.js
+msgid "Enable Inner Glow"
+msgstr "Activer la lueur interne"
 
-#: assets/editor.js
-msgid "Shadow uses background color"
-msgstr "L'ombre utilise la couleur d'arrière-plan"
+#: assets/editor-inspector.js
+msgid "Inner Glow Intensity (%)"
+msgstr "Intensité de la lueur interne (%)"
 
-#: assets/editor.js
-msgid "Inner Glow (Refraction)"
-msgstr "Lueur interne (Réfraction)"
+#: assets/editor-inspector.js
+msgid "Inner Glow Size (px)"
+msgstr "Taille de la lueur interne (px)"
 
-#: assets/editor.js
-msgid "Glow Intensity (%)"
-msgstr "Intensité de la lueur (%)"
+#: assets/editor-inspector.js
+msgid "Inner Glow Spread (px)"
+msgstr "Diffusion de la lueur interne (px)"
 
-#: assets/editor.js
-msgid "Glow Size (px)"
-msgstr "Taille de la lueur (px)"
-
-#: assets/editor.js
-msgid "Glow Spread (px)"
-msgstr "Diffusion de la lueur (px)"
-
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Negative spreads inward"
 msgstr "Valeur négative : diffusion vers l'intérieur"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Light Source Position"
 msgstr "Position de la source lumineuse"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Click or drag to set light source position"
 msgstr "Cliquez ou faites glisser pour définir la position de la source lumineuse"
 

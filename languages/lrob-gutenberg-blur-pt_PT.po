@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LRob - Gutenberg Blur 1.0.0\n"
 "Report-Msgid-Bugs-To: https://www.lrob.fr/\n"
-"POT-Creation-Date: 2025-01-08 12:00+0000\n"
-"PO-Revision-Date: 2025-01-08 12:00+0000\n"
+"POT-Creation-Date: 2025-01-09 14:00+0000\n"
+"PO-Revision-Date: 2025-01-09 14:00+0000\n"
 "Last-Translator: LRob <contact@lrob.fr>\n"
 "Language-Team: Portuguese\n"
 "Language: pt_PT\n"
@@ -16,110 +16,90 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: WP-CLI\n"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Blur Effect"
 msgstr "Efeito de desfoque"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Enable Blur Effect"
 msgstr "Ativar efeito de desfoque"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Effect Type"
 msgstr "Tipo de efeito"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Blur"
 msgstr "Desfoque"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Glass"
 msgstr "Vidro"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Background Color"
 msgstr "Cor de fundo"
 
-#: assets/editor.js
-msgid "Background"
-msgstr "Fundo"
+#: assets/editor-inspector.js
+msgid "Color"
+msgstr "Cor"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Background Opacity (%)"
 msgstr "Opacidade do fundo (%)"
 
-#: assets/editor.js
-msgid "Controls the opacity of the background color."
-msgstr "Controla a opacidade da cor de fundo."
-
-#: assets/editor.js
-msgid "Blur Intensity (px)"
+#: assets/editor-inspector.js
+msgid "Blur Amount (px)"
 msgstr "Intensidade do desfoque (px)"
 
-#: assets/editor.js
-msgid "Backdrop blur strength in pixels."
-msgstr "Força do desfoque de fundo em pixels."
-
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Saturation (%)"
 msgstr "Saturação (%)"
 
-#: assets/editor.js
-msgid "Backdrop saturation level (100% = neutral)."
-msgstr "Nível de saturação do fundo (100% = neutro)."
+#: assets/editor-inspector.js
+msgid "Glass Border Color"
+msgstr "Cor da borda do vidro"
 
-#: assets/editor.js
-msgid "Glass Effect Settings"
-msgstr "Configurações do efeito vidro"
-
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Border Color"
 msgstr "Cor da borda"
 
-#: assets/editor.js
-msgid "Border"
-msgstr "Borda"
+#: assets/editor-inspector.js
+msgid "Glass Border Opacity (%)"
+msgstr "Opacidade da borda do vidro (%)"
 
-#: assets/editor.js
-msgid "Border Opacity (%)"
-msgstr "Opacidade da borda (%)"
+#: assets/editor-inspector.js
+msgid "Glass Shadow Intensity (%)"
+msgstr "Intensidade da sombra do vidro (%)"
 
-#: assets/editor.js
-msgid "Shadow Intensity (%)"
-msgstr "Intensidade da sombra (%)"
+#: assets/editor-inspector.js
+msgid "Enable Inner Glow"
+msgstr "Ativar brilho interno"
 
-#: assets/editor.js
-msgid "Shadow uses background color"
-msgstr "A sombra usa a cor de fundo"
+#: assets/editor-inspector.js
+msgid "Inner Glow Intensity (%)"
+msgstr "Intensidade do brilho interno (%)"
 
-#: assets/editor.js
-msgid "Inner Glow (Refraction)"
-msgstr "Brilho interno (Refração)"
+#: assets/editor-inspector.js
+msgid "Inner Glow Size (px)"
+msgstr "Tamanho do brilho interno (px)"
 
-#: assets/editor.js
-msgid "Glow Intensity (%)"
-msgstr "Intensidade do brilho (%)"
+#: assets/editor-inspector.js
+msgid "Inner Glow Spread (px)"
+msgstr "Difusão do brilho interno (px)"
 
-#: assets/editor.js
-msgid "Glow Size (px)"
-msgstr "Tamanho do brilho (px)"
-
-#: assets/editor.js
-msgid "Glow Spread (px)"
-msgstr "Difusão do brilho (px)"
-
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Negative spreads inward"
-msgstr "Valor negativo: difusão para dentro"
+msgstr "Valores negativos difundem-se para dentro"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Light Source Position"
 msgstr "Posição da fonte de luz"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Click or drag to set light source position"
 msgstr "Clique ou arraste para definir a posição da fonte de luz"
 
 #: lrob-gutenberg-blur.php
 msgid "Adds backdrop blur effects to Gutenberg blocks (Group, Columns, Column, Row, Cover) with customizable background color, opacity, blur intensity, and saturation controls."
-msgstr "Adiciona efeitos de desfoque de fundo aos blocos Gutenberg (Grupo, Colunas, Coluna, Linha, Capa) com controlos personalizáveis de cor de fundo, opacidade, intensidade de desfoque e saturação."
+msgstr "Adiciona efeitos de desfoque de fundo aos blocos do Gutenberg (Grupo, Colunas, Coluna, Linha, Capa) com controlos personalizáveis de cor de fundo, opacidade, intensidade de desfoque e saturação."

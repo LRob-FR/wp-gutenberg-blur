@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LRob - Gutenberg Blur 1.0.0\n"
 "Report-Msgid-Bugs-To: https://www.lrob.fr/\n"
-"POT-Creation-Date: 2025-01-08 12:00+0000\n"
-"PO-Revision-Date: 2025-01-08 12:00+0000\n"
+"POT-Creation-Date: 2025-01-09 14:00+0000\n"
+"PO-Revision-Date: 2025-01-09 14:00+0000\n"
 "Last-Translator: LRob <contact@lrob.fr>\n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -16,110 +16,90 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: WP-CLI\n"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Blur Effect"
 msgstr "Vervagingseffect"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Enable Blur Effect"
 msgstr "Vervagingseffect inschakelen"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Effect Type"
 msgstr "Effecttype"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Blur"
 msgstr "Vervaging"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Glass"
 msgstr "Glas"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Background Color"
 msgstr "Achtergrondkleur"
 
-#: assets/editor.js
-msgid "Background"
-msgstr "Achtergrond"
+#: assets/editor-inspector.js
+msgid "Color"
+msgstr "Kleur"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Background Opacity (%)"
 msgstr "Achtergrond dekking (%)"
 
-#: assets/editor.js
-msgid "Controls the opacity of the background color."
-msgstr "Regelt de dekking van de achtergrondkleur."
-
-#: assets/editor.js
-msgid "Blur Intensity (px)"
+#: assets/editor-inspector.js
+msgid "Blur Amount (px)"
 msgstr "Vervagingsintensiteit (px)"
 
-#: assets/editor.js
-msgid "Backdrop blur strength in pixels."
-msgstr "Achtergrondvervagingssterkte in pixels."
-
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Saturation (%)"
 msgstr "Verzadiging (%)"
 
-#: assets/editor.js
-msgid "Backdrop saturation level (100% = neutral)."
-msgstr "Achtergrondverzadigingsniveau (100% = neutraal)."
+#: assets/editor-inspector.js
+msgid "Glass Border Color"
+msgstr "Glasrandkleur"
 
-#: assets/editor.js
-msgid "Glass Effect Settings"
-msgstr "Glaseffect instellingen"
-
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Border Color"
 msgstr "Randkleur"
 
-#: assets/editor.js
-msgid "Border"
-msgstr "Rand"
+#: assets/editor-inspector.js
+msgid "Glass Border Opacity (%)"
+msgstr "Glasrand dekking (%)"
 
-#: assets/editor.js
-msgid "Border Opacity (%)"
-msgstr "Rand dekking (%)"
+#: assets/editor-inspector.js
+msgid "Glass Shadow Intensity (%)"
+msgstr "Glasschaduw intensiteit (%)"
 
-#: assets/editor.js
-msgid "Shadow Intensity (%)"
-msgstr "Schaduwintensiteit (%)"
+#: assets/editor-inspector.js
+msgid "Enable Inner Glow"
+msgstr "Innerlijke gloed inschakelen"
 
-#: assets/editor.js
-msgid "Shadow uses background color"
-msgstr "Schaduw gebruikt achtergrondkleur"
+#: assets/editor-inspector.js
+msgid "Inner Glow Intensity (%)"
+msgstr "Innerlijke gloed intensiteit (%)"
 
-#: assets/editor.js
-msgid "Inner Glow (Refraction)"
-msgstr "Innerlijke gloed (Breking)"
+#: assets/editor-inspector.js
+msgid "Inner Glow Size (px)"
+msgstr "Innerlijke gloed grootte (px)"
 
-#: assets/editor.js
-msgid "Glow Intensity (%)"
-msgstr "Gloedintensiteit (%)"
+#: assets/editor-inspector.js
+msgid "Inner Glow Spread (px)"
+msgstr "Innerlijke gloed verspreiding (px)"
 
-#: assets/editor.js
-msgid "Glow Size (px)"
-msgstr "Gloedgrootte (px)"
-
-#: assets/editor.js
-msgid "Glow Spread (px)"
-msgstr "Gloedverspreiding (px)"
-
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Negative spreads inward"
-msgstr "Negatieve waarde: spreiding naar binnen"
+msgstr "Negatieve waarden verspreiden naar binnen"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Light Source Position"
-msgstr "Positie van lichtbron"
+msgstr "Lichtbronpositie"
 
-#: assets/editor.js
+#: assets/editor-inspector.js
 msgid "Click or drag to set light source position"
-msgstr "Klik of sleep om de positie van de lichtbron in te stellen"
+msgstr "Klik of sleep om de lichtbronpositie in te stellen"
 
 #: lrob-gutenberg-blur.php
 msgid "Adds backdrop blur effects to Gutenberg blocks (Group, Columns, Column, Row, Cover) with customizable background color, opacity, blur intensity, and saturation controls."
-msgstr "Voegt achtergrondvervagingseffecten toe aan Gutenberg-blokken (Groep, Kolommen, Kolom, Rij, Cover) met aanpasbare achtergrondkleur, dekking, vervagingsintensiteit en verzadigingsregelaars."
+msgstr "Voegt achtergrondvervagingseffecten toe aan Gutenberg-blokken (Groep, Kolommen, Kolom, Rij, Cover) met aanpasbare bedieningselementen voor achtergrondkleur, dekking, vervagingsintensiteit en verzadiging."
