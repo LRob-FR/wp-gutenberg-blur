@@ -170,3 +170,7 @@ For more details, see [https://www.gnu.org/licenses/gpl-2.0.html](https://www.gn
 - Blur and glass effects now display when a block is placed in a theme template — site header, footer, or page templates — and not only inside page/post content. Previously such blocks could show the glass frame but no blur; the stylesheet is now delivered reliably wherever a blur block is rendered.
 #### New
 - Automatic updates: the plugin now updates itself directly from the WordPress dashboard. New versions appear under Plugins and Dashboard → Updates, like any other plugin.
+
+### 1.0.3
+#### Fixes
+- Editor preview: the blur now shows inside the block editor in Glass mode. The stylesheet is loaded into the editor canvas (iframe), so the editor preview matches the frontend instead of showing only the glass frame without blur.

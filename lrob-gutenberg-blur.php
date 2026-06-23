@@ -3,7 +3,7 @@
  * Plugin Name: LRob - Gutenberg Blur
  * Plugin URI: https://github.com/LRob-FR/wp-gutenberg-blur/
  * Description: Adds backdrop blur effects to Gutenberg blocks (Group, Columns, Column, Row, Cover) with customizable background color, opacity, blur intensity, and saturation controls.
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: LRob
  * Author URI: https://www.lrob.fr/
  * Text Domain: lrob-gutenberg-blur
@@ -15,7 +15,7 @@
 
 if (!defined('ABSPATH')) exit;
 
-define('LROB_BLUR_VERSION', '1.0.2');
+define('LROB_BLUR_VERSION', '1.0.3');
 define('LROB_BLUR_PATH', plugin_dir_path(__FILE__));
 define('LROB_BLUR_URL', plugin_dir_url(__FILE__));
 define('LROB_BLUR_BASENAME', plugin_basename(__FILE__));
@@ -37,6 +37,7 @@ class LRob_Gutenberg_Blur {
 
     private function __construct() {
         add_action('plugins_loaded', array($this, 'load_textdomain'));
+        add_action('enqueue_block_assets', array($this, 'enqueue_canvas_style'));
         add_action('enqueue_block_editor_assets', array($this, 'enqueue_editor_assets'));
         add_filter('render_block', array($this, 'render_block_filter'), 10, 2);
 
@@ -49,14 +50,29 @@ class LRob_Gutenberg_Blur {
         load_plugin_textdomain('lrob-gutenberg-blur', false, dirname(plugin_basename(__FILE__)) . '/languages');
     }
 
-    public function enqueue_editor_assets() {
+    /**
+     * Load the stylesheet inside the block editor, including the iframed canvas.
+     *
+     * enqueue_block_editor_assets only reaches the editor's OUTER document, not
+     * the canvas iframe where blocks actually render — so backdrop-filter (which
+     * lives in style.css) was missing there: a glass block showed its inline
+     * frame/shadow but no blur. enqueue_block_assets does reach the canvas.
+     * Admin-gated so the frontend keeps getting the on-demand inline CSS from
+     * render_block_filter() instead of loading this file on every page.
+     */
+    public function enqueue_canvas_style() {
+        if (!is_admin()) {
+            return;
+        }
         wp_enqueue_style(
             'lrob-blur-style',
             LROB_BLUR_URL . 'assets/style.css',
             array(),
             LROB_BLUR_VERSION
         );
+    }
 
+    public function enqueue_editor_assets() {
         wp_enqueue_script(
             'lrob-blur-common',
             LROB_BLUR_URL . 'assets/common.js',

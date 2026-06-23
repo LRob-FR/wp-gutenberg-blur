@@ -42,8 +42,19 @@ loaded `style.css` → the `backdrop-filter` rule was absent → the glass frame
 `render_block` fires for every block wherever it lives, so emitting the CSS from
 there covers post content, template parts, patterns, widgets — with no extra HTTP
 request. If you ever "optimize" this back into a conditional enqueue, you will
-reintroduce the bug. The editor side (`enqueue_editor_assets`) enqueues
-`style.css` as a file unconditionally — that's fine.
+reintroduce the bug.
+
+## Editor CSS must load into the iframed canvas
+
+`style.css` is enqueued for the editor via `enqueue_canvas_style()` on the
+**`enqueue_block_assets`** hook (admin-gated), NOT `enqueue_block_editor_assets`.
+Since WP 6.x the editor canvas is an iframe; `enqueue_block_editor_assets` only
+reaches the editor's outer document, so `backdrop-filter` (in `style.css`) was
+absent in the canvas — a Glass block rendered its inline frame/shadow (from
+`editor-preview.js`) but no blur. `enqueue_block_assets` reaches the canvas.
+The block-registration JS stays on `enqueue_block_editor_assets` (it must run in
+the outer frame). Don't move the stylesheet back, or the editor preview breaks
+again (this was the 1.0.3 fix).
 
 ## Auto-update (GitHub Releases)
 
