@@ -204,10 +204,12 @@ create_archive() {
     # Find all files to include, excluding unwanted ones
     (cd "$PARENT_DIR" && find "$PLUGIN_DIR_NAME" -type f \
         ! -path "*/.git/*" \
+        ! -path "*/.claude/*" \
         ! -path "*/node_modules/*" \
         ! -name "*.sh" \
         ! -name "*.po" \
         ! -name "*.pot" \
+        ! -name "CLAUDE.md" \
         > "$temp_list")
 
     # Create zip using the file list

@@ -3,7 +3,7 @@
  * Plugin Name: LRob - Gutenberg Blur
  * Plugin URI: https://github.com/LRob-FR/wp-gutenberg-blur/
  * Description: Adds backdrop blur effects to Gutenberg blocks (Group, Columns, Column, Row, Cover) with customizable background color, opacity, blur intensity, and saturation controls.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: LRob
  * Author URI: https://www.lrob.fr/
  * Text Domain: lrob-gutenberg-blur
@@ -15,9 +15,13 @@
 
 if (!defined('ABSPATH')) exit;
 
-define('LROB_BLUR_VERSION', '1.0.1');
+define('LROB_BLUR_VERSION', '1.0.2');
 define('LROB_BLUR_PATH', plugin_dir_path(__FILE__));
 define('LROB_BLUR_URL', plugin_dir_url(__FILE__));
+define('LROB_BLUR_BASENAME', plugin_basename(__FILE__));
+define('LROB_BLUR_GITHUB_URL', 'https://github.com/LRob-FR/wp-gutenberg-blur');
+
+require_once LROB_BLUR_PATH . 'includes/class-lrob-blur-updater.php';
 
 class LRob_Gutenberg_Blur {
     private static $instance = null;
@@ -29,29 +33,20 @@ class LRob_Gutenberg_Blur {
         return self::$instance;
     }
 
+    private static $inline_css_printed = false;
+
     private function __construct() {
         add_action('plugins_loaded', array($this, 'load_textdomain'));
-        add_action('wp_enqueue_scripts', array($this, 'enqueue_frontend_assets'));
         add_action('enqueue_block_editor_assets', array($this, 'enqueue_editor_assets'));
         add_filter('render_block', array($this, 'render_block_filter'), 10, 2);
-        add_action('save_post', array($this, 'clear_blur_cache'));
+
+        // Self-hosted GitHub updater. Registered in every context — wp-cron can
+        // fire the update check from a frontend request when DISABLE_WP_CRON is set.
+        (new LRob_Blur_Updater())->register();
     }
 
     public function load_textdomain() {
         load_plugin_textdomain('lrob-gutenberg-blur', false, dirname(plugin_basename(__FILE__)) . '/languages');
-    }
-
-    public function enqueue_frontend_assets() {
-        if (!$this->page_has_blur_blocks()) {
-            return;
-        }
-
-        wp_enqueue_style(
-            'lrob-blur-style',
-            LROB_BLUR_URL . 'assets/style.css',
-            array(),
-            LROB_BLUR_VERSION
-        );
     }
 
     public function enqueue_editor_assets() {
@@ -105,48 +100,27 @@ class LRob_Gutenberg_Blur {
         wp_set_script_translations('lrob-blur-inspector', 'lrob-gutenberg-blur', LROB_BLUR_PATH . 'languages');
     }
 
-    public function clear_blur_cache($post_id) {
-        delete_transient('lrob_blur_' . $post_id);
-    }
+    /**
+     * Base stylesheet, printed inline the first time a blur block is rendered.
+     *
+     * The frontend CSS can't be enqueued conditionally up front: a blur block may
+     * live in an FSE template or template part (header/footer/template), which is
+     * not part of $post->post_content and renders after wp_head(). Since render_block
+     * fires for every blur block wherever it lives, we emit the (sub-1KB) stylesheet
+     * inline once, on demand — no extra HTTP request, works everywhere.
+     */
+    private function maybe_inline_css() {
+        if (self::$inline_css_printed) {
+            return '';
+        }
+        self::$inline_css_printed = true;
 
-    private function page_has_blur_blocks() {
-        global $post;
-
-        if (!$post || !isset($post->ID)) {
-            return false;
+        $css = @file_get_contents(LROB_BLUR_PATH . 'assets/style.css');
+        if ($css === false || $css === '') {
+            return '';
         }
 
-        $cache_key = 'lrob_blur_' . $post->ID;
-        $cached = get_transient($cache_key);
-
-        if ($cached !== false) {
-            return (bool) $cached;
-        }
-
-        $has_blocks = false;
-
-        if (strpos($post->post_content, 'lrobBlurEnabled') !== false) {
-            $has_blocks = true;
-        } elseif (has_blocks($post->post_content)) {
-            $blocks = parse_blocks($post->post_content);
-            $has_blocks = $this->contains_blur_blocks($blocks);
-        }
-
-        set_transient($cache_key, (int) $has_blocks, HOUR_IN_SECONDS);
-
-        return $has_blocks;
-    }
-
-    private function contains_blur_blocks($blocks) {
-        foreach ($blocks as $block) {
-            if (!empty($block['attrs']['lrobBlurEnabled'])) {
-                return true;
-            }
-            if (!empty($block['innerBlocks']) && $this->contains_blur_blocks($block['innerBlocks'])) {
-                return true;
-            }
-        }
-        return false;
+        return '<style id="lrob-blur-inline-css">' . $css . '</style>';
     }
 
     public function render_block_filter($block_content, $block) {
@@ -272,7 +246,7 @@ class LRob_Gutenberg_Blur {
             }
         }
 
-        return $block_content;
+        return $this->maybe_inline_css() . $block_content;
     }
 
     private function hex_to_rgb($hex) {
