@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><title>LRob Gutenberg Blur — POC réfraction "liquid glass"</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+  body{margin:0;font:15px/1.5 system-ui,sans-serif;color:#fff;background:#111}
+  header{padding:14px 24px;background:#1b1b1b}
+  header h1{font-size:16px;margin:0 0 4px}
+  header p{margin:0;font-size:13px;opacity:.7}
+  .warn{padding:10px 24px;background:#2a1a00;color:#ffcf8f;font-size:13px}
+  .bar{padding:14px 24px;background:#161616;display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+  .bar label{opacity:.85;font-size:13px}
+  .stage{position:relative;min-height:430px;overflow:hidden;display:flex;gap:56px;
+    align-items:center;justify-content:center;flex-wrap:wrap;padding:40px}
+  .stage::before{content:"";position:absolute;inset:0;
+    background:repeating-linear-gradient(45deg,#ff0080 0 28px,#00e0ff 28px 56px,#ffe600 56px 84px)}
+  .panel{position:relative;z-index:1;width:340px;height:240px;border-radius:30px;
+    border:1px solid rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;
+    font-weight:600;font-size:18px;background:rgba(255,255,255,.06);
+    box-shadow:0 12px 34px rgba(0,0,0,.28), inset 6px 6px 14px rgba(255,255,255,.18)}
+  /* Frosted glass — works in every browser */
+  .frost{backdrop-filter:blur(8px) saturate(120%);-webkit-backdrop-filter:blur(8px) saturate(120%)}
+  /* Refraction — progressive enhancement.
+     Line 1 = frosted fallback (kept by Safari/Firefox, which drop url()).
+     Line 2 = Chromium: the SVG filter does blur + displacement + edge mask itself. */
+  .refract{backdrop-filter:blur(8px) saturate(120%);
+           backdrop-filter:saturate(120%) url(#lens)}
+  .tag{font-size:12px;opacity:.6;text-align:center;margin-top:8px}
+</style></head><body>
+<header>
+  <h1>LRob Gutenberg Blur — POC réfraction « liquid glass »</h1>
+  <p>Preuve de concept (hors plugin). Réfraction réelle du fond aux bords, centre givré, rebord net.</p>
+</header>
+<div class="warn">⚠️ La <b>réfraction</b> n'est rendue que par les navigateurs <b>Chromium</b> (Chrome, Edge, Brave). Sous <b>Firefox / Safari</b>, le panneau de droite retombe automatiquement sur le verre givré (repli CSS) — c'est voulu, rien n'est cassé.</div>
+<div class="bar">
+  <label>Intensité réfraction : <strong id="sv">28</strong></label>
+  <input id="s" type="range" min="0" max="70" value="28" style="width:240px">
+  <label>Flou centre : <strong id="bv">8</strong> px</label>
+  <input id="b" type="range" min="0" max="20" value="8" style="width:200px">
+</div>
+<div class="stage">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <filter id="lens" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feImage href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22340%22%20height%3D%22240%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22rx%22%20x1%3D%220%22%20x2%3D%221%22%20y1%3D%220%22%20y2%3D%220%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23000000%22/%3E%3Cstop%20offset%3D%220.34%22%20stop-color%3D%22%23800000%22/%3E%3Cstop%20offset%3D%220.66%22%20stop-color%3D%22%23800000%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ff0000%22/%3E%3C/linearGradient%3E%3ClinearGradient%20id%3D%22gy%22%20x1%3D%220%22%20x2%3D%220%22%20y1%3D%220%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23000000%22/%3E%3Cstop%20offset%3D%220.34%22%20stop-color%3D%22%23008000%22/%3E%3Cstop%20offset%3D%220.66%22%20stop-color%3D%22%23008000%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2300ff00%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22340%22%20height%3D%22240%22%20fill%3D%22url%28%23rx%29%22/%3E%3Crect%20width%3D%22340%22%20height%3D%22240%22%20fill%3D%22url%28%23gy%29%22%20style%3D%22mix-blend-mode%3Ascreen%22/%3E%3C/svg%3E" width="340" height="240" preserveAspectRatio="none" result="map"/>
+      <feDisplacementMap id="disp" in="SourceGraphic" in2="map" scale="28" xChannelSelector="R" yChannelSelector="G" result="dispd"/>
+      <feGaussianBlur id="gb" in="SourceGraphic" stdDeviation="8" result="blurred"/>
+      <feComponentTransfer in="map" result="absmap">
+        <feFuncR type="table" tableValues="1 0 1"/><feFuncG type="table" tableValues="1 0 1"/>
+        <feFuncB type="table" tableValues="0 0"/><feFuncA type="table" tableValues="1 1"/>
+      </feComponentTransfer>
+      <feColorMatrix in="absmap" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1 1 0 0 0" result="maskraw"/>
+      <feGaussianBlur in="maskraw" stdDeviation="5" result="masksoft"/>
+      <feComponentTransfer in="masksoft" result="mask"><feFuncA type="table" tableValues="0 0.15 1 1"/></feComponentTransfer>
+      <feComposite in="dispd" in2="mask" operator="in" result="edge"/>
+      <feComposite in="blurred" in2="mask" operator="out" result="centre"/>
+      <feMerge><feMergeNode in="centre"/><feMergeNode in="edge"/></feMerge>
+    </filter>
+  </svg>
+  <div><div class="panel frost">VERRE GIVRÉ<br><small>(tous navigateurs)</small></div><div class="tag">backdrop-filter: blur()</div></div>
+  <div><div class="panel refract" id="rp">RÉFRACTION<br><small>(Chromium)</small></div><div class="tag">centre givré + rebord net</div></div>
+</div>
+<script>
+  const s=document.getElementById('s'),b=document.getElementById('b');
+  const disp=document.getElementById('disp'),gb=document.getElementById('gb');
+  const sv=document.getElementById('sv'),bv=document.getElementById('bv'),rp=document.getElementById('rp');
+  s.oninput=()=>{disp.setAttribute('scale',s.value);sv.textContent=s.value};
+  b.oninput=()=>{gb.setAttribute('stdDeviation',b.value);bv.textContent=b.value;
+    rp.parentElement; // keep fallback blur in sync for non-Chromium viewers
+    rp.style.setProperty('backdrop-filter','saturate(120%) url(#lens)');};
+</script>
+</body></html>

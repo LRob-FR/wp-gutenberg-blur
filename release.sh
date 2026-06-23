@@ -206,6 +206,7 @@ create_archive() {
         ! -path "*/.git/*" \
         ! -path "*/.claude/*" \
         ! -path "*/node_modules/*" \
+        ! -path "*/poc/*" \
         ! -name "*.sh" \
         ! -name "*.po" \
         ! -name "*.pot" \
