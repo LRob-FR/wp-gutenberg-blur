@@ -1,11 +1,12 @@
 <?php
 /**
  * Plugin Name: LRob - Gutenberg Blur
- * Plugin URI: https://github.com/LRob-FR/wp-gutenberg-blur/
+ * Plugin URI: https://git.lrob.net/WP/gutenberg-blur/
  * Description: Adds backdrop blur effects to Gutenberg blocks (Group, Columns, Column, Row, Cover) with customizable background color, opacity, blur intensity, and saturation controls.
  * Version: 1.0.3
  * Author: LRob
  * Author URI: https://www.lrob.fr/
+ * Update URI: https://git.lrob.net/WP/gutenberg-blur
  * Text Domain: lrob-gutenberg-blur
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -19,7 +20,8 @@ define('LROB_BLUR_VERSION', '1.0.3');
 define('LROB_BLUR_PATH', plugin_dir_path(__FILE__));
 define('LROB_BLUR_URL', plugin_dir_url(__FILE__));
 define('LROB_BLUR_BASENAME', plugin_basename(__FILE__));
-define('LROB_BLUR_GITHUB_URL', 'https://github.com/LRob-FR/wp-gutenberg-blur');
+define('LROB_BLUR_REPO_URL', 'https://git.lrob.net/WP/gutenberg-blur');
+define('LROB_BLUR_ISSUES_URL', LROB_BLUR_REPO_URL . '/issues');
 
 require_once LROB_BLUR_PATH . 'includes/class-lrob-blur-updater.php';
 
@@ -41,7 +43,7 @@ class LRob_Gutenberg_Blur {
         add_action('enqueue_block_editor_assets', array($this, 'enqueue_editor_assets'));
         add_filter('render_block', array($this, 'render_block_filter'), 10, 2);
 
-        // Self-hosted GitHub updater. Registered in every context — wp-cron can
+        // Self-hosted updater. Registered in every context — wp-cron can
         // fire the update check from a frontend request when DISABLE_WP_CRON is set.
         (new LRob_Blur_Updater())->register();
     }

@@ -1,5 +1,5 @@
 # Copyright (C) 2026 LRob
-# This file is distributed under the same license as the LRob - Gutenberg Blur plugin.
+# This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
 "Project-Id-Version: LRob - Gutenberg Blur 1.0.3\n"
@@ -9,32 +9,37 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-23T15:18:14+00:00\n"
+"POT-Creation-Date: 2026-08-01T02:03:45+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.4.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: lrob-gutenberg-blur\n"
 
 #. Plugin Name of the plugin
+#: lrob-gutenberg-blur.php
 msgid "LRob - Gutenberg Blur"
 msgstr ""
 
 #. Plugin URI of the plugin
-msgid "https://github.com/LRob-FR/wp-gutenberg-blur/"
+#: lrob-gutenberg-blur.php
+msgid "https://git.lrob.net/WP/gutenberg-blur/"
 msgstr ""
 
 #. Description of the plugin
+#: lrob-gutenberg-blur.php
 msgid "Adds backdrop blur effects to Gutenberg blocks (Group, Columns, Column, Row, Cover) with customizable background color, opacity, blur intensity, and saturation controls."
 msgstr ""
 
 #. Author of the plugin
+#: lrob-gutenberg-blur.php
 msgid "LRob"
 msgstr ""
 
 #. Author URI of the plugin
+#: lrob-gutenberg-blur.php
 msgid "https://www.lrob.fr/"
 msgstr ""
 
-#: includes/class-lrob-blur-updater.php:101
+#: includes/class-lrob-blur-updater.php:109
 msgid "Adds backdrop blur and glass effects to Gutenberg blocks (Group, Columns, Column, Row, Cover) with customizable background color, opacity, blur intensity, and saturation controls."
 msgstr ""
 

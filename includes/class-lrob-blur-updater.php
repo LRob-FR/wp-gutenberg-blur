@@ -1,12 +1,16 @@
 <?php
 /**
- * Self-hosted plugin updater backed by GitHub Releases.
+ * Self-hosted plugin updater backed by the Forgejo Releases API.
  *
  * Mirrors the WordPress.org update flow by injecting our own update entry into
  * the update_plugins transient and answering the "View details" modal. The
  * release zip must be attached as an asset named "lrob-gutenberg-blur-X.Y.Z.zip"
- * (a properly structured archive — not GitHub's source tarball, whose folder is
- * named after the commit hash and would install side-by-side instead of updating).
+ * (a properly structured archive — not the auto-generated source tarball, whose
+ * folder is named after the commit hash and would install side-by-side instead
+ * of updating).
+ *
+ * The API base is derived from LROB_BLUR_REPO_URL, so moving the repo to
+ * another host/owner only means editing that one constant.
  *
  * Adapted from LRob - Email Toolkit.
  */
@@ -15,10 +19,14 @@ if (!defined('ABSPATH')) exit;
 
 class LRob_Blur_Updater {
 
-    const TRANSIENT_KEY      = 'lrob_blur_gh_release';
-    const TRANSIENT_TTL      = HOUR_IN_SECONDS; // success cache
-    const TRANSIENT_TTL_FAIL = HOUR_IN_SECONDS; // failure cache (don't hammer a flaky API)
+    // Back-off when the server is unreachable, so admin pages don't each pay a
+    // connection timeout.
+    const TRANSIENT_KEY      = 'lrob_blur_release_fail';
+    const TRANSIENT_TTL_FAIL = 5 * MINUTE_IN_SECONDS;
     const PLUGIN_SLUG        = 'lrob-gutenberg-blur';
+
+    /** Per-request memo — the filters below can both fire in a single request. */
+    private static $release_memo = false;
 
     public function register() {
         add_filter('pre_set_site_transient_update_plugins', array($this, 'check_for_update'));
@@ -46,8 +54,8 @@ class LRob_Blur_Updater {
         $zip_url = $this->find_asset_url($release);
         if ($zip_url === null) {
             // Release published but no usable zip asset attached — skip rather
-            // than pointing WP at GitHub's source tarball (commit-hash folder
-            // name → installs side-by-side instead of replacing).
+            // than pointing WP at the source tarball (commit-hash folder name →
+            // installs side-by-side instead of replacing).
             return $transient;
         }
 
@@ -55,7 +63,7 @@ class LRob_Blur_Updater {
             'slug'         => self::PLUGIN_SLUG,
             'plugin'       => LROB_BLUR_BASENAME,
             'new_version'  => $remote_version,
-            'url'          => LROB_BLUR_GITHUB_URL,
+            'url'          => LROB_BLUR_REPO_URL,
             'package'      => $zip_url,
             'tested'       => $this->tested_wp_version(),
             'requires_php' => '8.2',
@@ -91,7 +99,7 @@ class LRob_Blur_Updater {
             'slug'          => self::PLUGIN_SLUG,
             'version'       => $remote_version,
             'author'        => '<a href="https://www.lrob.fr">LRob</a>',
-            'homepage'      => LROB_BLUR_GITHUB_URL,
+            'homepage'      => LROB_BLUR_REPO_URL,
             'requires'      => '6.8',
             'requires_php'  => '8.2',
             'tested'        => $this->tested_wp_version(),
@@ -104,69 +112,56 @@ class LRob_Blur_Updater {
         );
     }
 
-    /** Force-clear the cached release info. */
+    /** Clear the "server unreachable" back-off so the next check retries immediately. */
     public static function flush_cache() {
         delete_transient(self::TRANSIENT_KEY);
+        self::$release_memo = false;
     }
 
     /* ─── Internals ──────────────────────────────────────────────────── */
 
     private function get_release() {
-        $force = $this->is_force_refresh();
-        if (!$force) {
-            $cached = get_transient(self::TRANSIENT_KEY);
-            if ($cached === 'none') {
-                return null;
-            }
-            if (is_array($cached) && !empty($cached)) {
-                return $cached;
-            }
+        if (self::$release_memo !== false) {
+            return self::$release_memo;
+        }
+        if (get_transient(self::TRANSIENT_KEY) === 'down') {
+            return null;
         }
 
-        $api_url = 'https://api.github.com/repos/' . $this->github_repo() . '/releases/latest';
+        $api_url = $this->api_url();
+        if ($api_url === '') {
+            return null;
+        }
+
         $response = wp_remote_get($api_url, array(
-            'timeout' => 8,
+            'timeout' => 5,
             'headers' => array(
-                'Accept'     => 'application/vnd.github+json',
+                'Accept'     => 'application/json',
                 'User-Agent' => 'WordPress/' . get_bloginfo('version') . '; ' . home_url(),
             ),
         ));
 
         if (is_wp_error($response) || wp_remote_retrieve_response_code($response) !== 200) {
-            set_transient(self::TRANSIENT_KEY, 'none', self::TRANSIENT_TTL_FAIL);
-            return null;
+            set_transient(self::TRANSIENT_KEY, 'down', self::TRANSIENT_TTL_FAIL);
+            return self::$release_memo = null;
         }
 
         $body = json_decode(wp_remote_retrieve_body($response), true);
         if (!is_array($body) || empty($body['tag_name'])) {
-            set_transient(self::TRANSIENT_KEY, 'none', self::TRANSIENT_TTL_FAIL);
-            return null;
+            set_transient(self::TRANSIENT_KEY, 'down', self::TRANSIENT_TTL_FAIL);
+            return self::$release_memo = null;
         }
 
-        set_transient(self::TRANSIENT_KEY, $body, self::TRANSIENT_TTL);
-        return $body;
+        return self::$release_memo = $body;
     }
 
-    private function is_force_refresh() {
-        if (!is_admin()) {
-            return false;
+    /** https://git.lrob.net/WP/gutenberg-blur → https://git.lrob.net/api/v1/repos/WP/gutenberg-blur/releases/latest */
+    private function api_url() {
+        $url = defined('LROB_BLUR_REPO_URL') ? LROB_BLUR_REPO_URL : '';
+        if (!preg_match('#^(https?://[^/]+)/([^/]+/[^/]+?)/?$#', $url, $m)) {
+            return '';
         }
-        if (isset($_GET['force-check']) && (string) $_GET['force-check'] === '1') {
-            return true;
-        }
-        $pagenow = isset($GLOBALS['pagenow']) ? $GLOBALS['pagenow'] : '';
-        if ($pagenow === 'update-core.php') {
-            return true;
-        }
-        return false;
-    }
-
-    private function github_repo() {
-        $url = defined('LROB_BLUR_GITHUB_URL') ? LROB_BLUR_GITHUB_URL : '';
-        if (preg_match('#github\.com/([^/]+/[^/]+?)/?$#', $url, $m)) {
-            return $m[1];
-        }
-        return 'LRob-FR/wp-gutenberg-blur';
+        return $m[1] . '/api/v1/repos/' . $m[2] . '/releases/latest';
     }
 
     private function normalize_version($tag) {

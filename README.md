@@ -28,10 +28,13 @@ A lightweight WordPress plugin that adds backdrop blur effects to Gutenberg bloc
 
 ## Installation
 
-1. Download the latest release ZIP
+1. Download the latest release ZIP from [git.lrob.net/WP/gutenberg-blur/releases](https://git.lrob.net/WP/gutenberg-blur/releases)
 2. Upload to WordPress via Plugins → Add New → Upload Plugin
 3. Activate the plugin
 4. Edit any page and select a supported block to see the "Blur Effect" panel
+
+Once installed, the plugin updates itself from this repository — new versions
+appear under Plugins and Dashboard → Updates.
 
 ## Usage
 
@@ -112,7 +115,7 @@ nano languages/lrob-gutenberg-blur-es_ES.po
 
 ## Support
 
-For support, please [open an issue](https://github.com/LRob-FR/wp-gutenberg-blur/issues) or [contact LRob directly](https://www.lrob.fr/contact/)
+For support, please [open an issue](https://git.lrob.net/WP/gutenberg-blur/issues) or [contact LRob directly](https://www.lrob.fr/contact/)
 
 ## Credits
 
@@ -174,3 +177,5 @@ For more details, see [https://www.gnu.org/licenses/gpl-2.0.html](https://www.gn
 ### 1.0.3
 #### Fixes
 - Editor preview: the blur now shows inside the block editor in Glass mode. The stylesheet is loaded into the editor canvas (iframe), so the editor preview matches the frontend instead of showing only the glass frame without blur.
+#### Changes
+- Development moved to [git.lrob.net/WP/gutenberg-blur](https://git.lrob.net/WP/gutenberg-blur) — automatic updates now come from there, and new versions are picked up as soon as WordPress checks instead of up to an hour later.

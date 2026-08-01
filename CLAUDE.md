@@ -7,7 +7,7 @@ core blocks (Group, Columns, Column, Row, Cover) via Gutenberg block attributes.
 
 - `lrob-gutenberg-blur.php` — main file: singleton bootstrap, editor enqueue,
   the `render_block` frontend filter, hex→rgb + inline-style generation.
-- `includes/class-lrob-blur-updater.php` — self-hosted GitHub updater.
+- `includes/class-lrob-blur-updater.php` — self-hosted Forgejo updater.
 - `assets/`
   - `style.css` — the ONLY frontend CSS. Holds the `.lrob-blur` rule with
     `backdrop-filter`. Used by both editor and frontend.
@@ -56,18 +56,22 @@ The block-registration JS stays on `enqueue_block_editor_assets` (it must run in
 the outer frame). Don't move the stylesheet back, or the editor preview breaks
 again (this was the 1.0.3 fix).
 
-## Auto-update (GitHub Releases)
+## Auto-update (Forgejo Releases)
 
 `LRob_Blur_Updater` hooks `pre_set_site_transient_update_plugins` and
-`plugins_api` to make WordPress update the plugin from this repo's GitHub
-Releases. It reads `releases/latest`, compares `tag_name` (vX.Y.Z, the `v` is
-stripped) against `LROB_BLUR_VERSION`, caches the API response in a transient
-(`lrob_blur_gh_release`, 1h; `'none'` sentinel on failure), and force-refreshes on
-`update-core.php` or `?force-check=1`.
+`plugins_api` to make WordPress update the plugin from this repo's releases on
+git.lrob.net. It reads `releases/latest` off the Forgejo API — the endpoint is
+derived from `LROB_BLUR_REPO_URL`, so a repo move is a one-constant edit — and
+compares `tag_name` (vX.Y.Z, the `v` is stripped) against `LROB_BLUR_VERSION`.
+
+Release info is read live on every check WordPress makes; only an unreachable
+server is remembered (`lrob_blur_release_fail`, 5 min) so admin pages don't each
+pay a connection timeout. A per-request memo keeps the two filters from firing
+two HTTP calls in one request.
 
 Hard requirement: each release MUST attach an asset named
 `lrob-gutenberg-blur-X.Y.Z.zip` whose archive has a single top-level folder
-`lrob-gutenberg-blur/`. The updater deliberately ignores GitHub's auto-generated
+`lrob-gutenberg-blur/`. The updater deliberately ignores the auto-generated
 source tarball (its folder is the commit hash → would install side-by-side
 instead of replacing). `release.sh` produces a correctly-structured zip.
 
@@ -81,9 +85,12 @@ Adapted from the LRob - Email Toolkit updater (`../lrob-email-toolkit`).
 3. `./release.sh` — regenerates translations and builds
    `../releases/lrob-gutenberg-blur-<version>.zip` (the `releases/` dir is the
    sibling folder, outside this repo). Needs php-cli, wp-cli, gettext, zip.
-4. Commit + push to `main`.
-5. Publish the GitHub release with the zip attached, e.g.:
-   `gh release create vX.Y.Z ../releases/lrob-gutenberg-blur-X.Y.Z.zip --target main --title "..." --notes-file <notes>`
+4. Commit + push to `main` on `forgejo` (git.lrob.net). GitHub is an archive
+   remote: it holds a "moved" README stub and is no longer pushed to.
+5. Publish the release on git.lrob.net with the zip attached, via the API:
+   `POST /api/v1/repos/WP/gutenberg-blur/releases` then
+   `POST /api/v1/repos/WP/gutenberg-blur/releases/<id>/assets?name=<zip>`,
+   authenticated with the token in `~/.config/forgejo/token`.
 6. Release notes are for END USERS: focus on what changed for them, not internals
    or where code came from.
 
